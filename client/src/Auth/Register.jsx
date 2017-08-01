@@ -39,7 +39,7 @@ export default class Register extends Component {
     callback = function(err, data) {
         if(err) {
             const displayError = checkRegistrationError(err);
-            console.log("Error: " + displayError.toString());
+            console.log("Error: " + err);
             this.setState(() => {
                 return {
                     invalidFormDataMessage: displayError
@@ -156,7 +156,7 @@ export default class Register extends Component {
     }
 
     checkPhonePattern = (phone) => {
-        return /\+1[0-9]{3}[0-9]{3}[0-9]{4}$/.test(phone);
+        return true; ///\+1[0-9]{3}[0-9]{3}[0-9]{4}$/.test(phone);
     }
 
     countDownResendVerificationCode = () => {

@@ -7,15 +7,12 @@ See the License for the specific language governing permissions and limitations 
 */
 
 import React, { Component } from 'react';
-import AWS, { Config, CognitoIdentityCredentials } from 'aws-sdk';
-import { CognitoUserPool, CognitoUserAttribute, AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
 import { Row, Icon } from 'react-materialize';
 import AppRoute from '../index';
 import { Segment, Button, Divider, Input, Form, Label, Modal, Image } from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 import '../css/general.css';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import awsmobile from '../configuration/aws-exports';
 import { loginCallbackFactory, handleSignIn, sendMFAVerificationCode } from './auth';
 
 export default class Login extends Component {
@@ -35,6 +32,7 @@ export default class Login extends Component {
     };
 
     callbacks = loginCallbackFactory({
+
         onSuccess(result) {
             this.setState(() => {
                 return {
